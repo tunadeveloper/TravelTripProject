@@ -1,0 +1,30 @@
+﻿@model List<TravelTripProject.Models.Classes.Message>
+@{
+    ViewBag.Title = "MessageDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Mesaj Detayları</h4>
+<br />
+<br />
+<a href="/AdminMessage/Index/" class="btn btn-danger" style="margin-bottom:80px;">Geri Gel</a>
+<br />
+@foreach (var item in Model)
+{
+
+
+    <label class="design"><b> İsim Soyisim:</b> @item.NameSurname</label>
+    <br /><br />
+    <label class="design"><b> E-Posta Adresi:</b> @item.Email</label>
+    <br /><br />
+    <label class="design"><b> Gönderme Tarihi:</b> @item.CreatedDate</label>
+    <br /><br />
+    <label class="design"><b> Mesajı:</b> @item.Description</label>
+
+
+}
+<style>
+    .design {
+        background-color:slategray; border-radius:10px; padding:10px; color: aliceblue; font-size:20px;
+    }
+</style>

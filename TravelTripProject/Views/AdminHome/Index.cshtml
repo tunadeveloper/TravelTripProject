@@ -1,10 +1,10 @@
-﻿@model List<TravelTripProject.Models.Classes.Message>
+﻿@model List<TravelTripProject.Models.Classes.Home>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h4>Son Gelen Mesajlar</h4>
+<h4>Anasayfa</h4>
 
 <div class="row">
     <div class="col-md-12">
@@ -14,10 +14,11 @@
                     <thead>
                         <tr>
                             <th class="ml-5">#</th>
-                            <th>İsim Soyisim</th>
-                            <th>E-Posta Adresi</th>
-                            <th>Gönderme Tarihi</th>
-                            <th>Mesajı</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>Görsel</th>
+                            <th>Güncelle</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -25,10 +26,10 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.NameSurname</td>
-                                <td>@item.Email</td>
-                                <td>@item.CreatedDate</td>
-                                <td>@(item.Description.Length > 30 ? item.Description.Substring(0, 30) + "..." : item.Description)</td>
+                                <td>@item.HeadImageTitle</td>
+                                <td>@item.HeadImageDescription</td>
+                                <td><img src="@item.HeadImage" alt="@item.HeadImageTitle" /></td>
+                                <th><a href="/AdminHome/UpdateHome/@item.Id" class="btn btn-success">Güncelle</a></th>
                             </tr>
                         }
                     </tbody>
@@ -39,8 +40,3 @@
 </div>
 <br />
 <br />
-<div class="row">
-
-    @Html.Action("PartialDasboardBlog", "Admin")
-    @Html.Action("PartialDasboardComment", "Admin")
-</div>

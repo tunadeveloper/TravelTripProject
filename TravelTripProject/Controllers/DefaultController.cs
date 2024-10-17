@@ -7,7 +7,7 @@ using TravelTripProject.Models.Classes;
 
 namespace TravelTripProject.Controllers
 {
-    
+
     public class DefaultController : Controller
     {
         Context context = new Context();
@@ -24,8 +24,8 @@ namespace TravelTripProject.Controllers
         public PartialViewResult PartialFooter()
         {
             var randomGalleries = context.Galleries
-                                   .OrderBy(r => Guid.NewGuid()) 
-                                   .Take(6) 
+                                   .OrderBy(r => Guid.NewGuid())
+                                   .Take(6)
                                    .ToList();
 
             return PartialView(randomGalleries);

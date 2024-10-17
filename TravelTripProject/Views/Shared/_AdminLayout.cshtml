@@ -6,70 +6,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>PolluxUI Admin</title>
-    <!-- base:css -->
-    <link rel="stylesheet" href="~/Content/polluxui-free-admin-template-1.0.0/template/vendors/typicons/typicons.css">
-    <link rel="stylesheet" href="~/Content/polluxui-free-admin-template-1.0.0/template/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="~/Content/polluxui-free-admin-template-1.0.0/template/css/vertical-layout-light/style.css">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="~/Content/polluxui-free-admin-template-1.0.0/template/images/favicon.png" />
-</head>
+@Html.Action("PartialAdminHead", "Admin")
 <body>
-    <div class="row" id="proBanner">
-        <div class="col-12">
-            <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="https://bootstrapdash.com/demo/polluxui/template/index.html?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn download-button purchase-button ml-auto">Upgrade To Pro</a>
-                <i class="typcn typcn-delete-outline" id="bannerClose"></i>
-            </span>
-        </div>
-    </div>
+
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
+        <!-- partial -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a class="navbar-brand brand-logo" href="index.html"><img src="~/Content/polluxui-free-admin-template-1.0.0/template/images/logo.svg" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/Content/polluxui-free-admin-template-1.0.0/template/images/logo-mini.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="/Dashboard/Index/" style="color: aliceblue">Yönetim</a>
+                    <a class="navbar-brand brand-logo-mini" href="/Dashboard/Index/">🧑🏼‍🚀</a>
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="typcn typcn-th-menu"></span>
                     </button>
                 </div>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                <ul class="navbar-nav mr-lg-2">
-                    <li class="nav-item nav-profile dropdown">
-                        <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="/Content/polluxui-free-admin-template-1.0.0/images/faces/face5.jpg" alt="profile" />
-                            <span class="nav-profile-name">Eugenia Mullins</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item">
-                                <i class="typcn typcn-cog-outline text-primary"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item">
-                                <i class="typcn typcn-eject text-primary"></i>
-                                Logout
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item nav-user-status dropdown">
-                        <p class="mb-0">Last login was 23 hours ago.</p>
-                    </li>
-                </ul>
+                
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-date dropdown">
                         <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
-                            <h6 class="date mb-0">Today : Mar 23</h6>
+                            <h6 class="date mb-0">Today : 2024</h6>
                             <i class="typcn typcn-calendar"></i>
                         </a>
                     </li>
@@ -82,7 +40,7 @@
                             <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="~/Content/polluxui-free-admin-template-1.0.0/template/images/faces/face4.jpg" alt="image" class="profile-pic">
+                                    <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow">
                                     <h6 class="preview-subject ellipsis font-weight-normal">
@@ -95,7 +53,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="~/Content/polluxui-free-admin-template-1.0.0/template/images/faces/face2.jpg" alt="image" class="profile-pic">
+                                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow">
                                     <h6 class="preview-subject ellipsis font-weight-normal">
@@ -108,7 +66,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="~/Content/polluxui-free-admin-template-1.0.0/template/images/faces/face3.jpg" alt="image" class="profile-pic">
+                                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow">
                                     <h6 class="preview-subject ellipsis font-weight-normal">
@@ -175,8 +133,8 @@
                 </button>
             </div>
         </nav>
-        <!-- partial -->
         <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
+
             <div class="navbar-links-wrapper d-flex align-items-stretch">
                 <div class="nav-link">
                     <a href="javascript:;"><i class="typcn typcn-calendar-outline"></i></a>
@@ -191,29 +149,10 @@
                     <a href="javascript:;"><i class="typcn typcn-document-text"></i></a>
                 </div>
             </div>
-            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-start">
                 <ul class="navbar-nav mr-lg-2">
                     <li class="nav-item ml-0">
-                        <h4 class="mb-0">Dashboard</h4>
-                    </li>
-                    <li class="nav-item">
-                        <div class="d-flex align-items-baseline">
-                            <p class="mb-0">Home</p>
-                            <i class="typcn typcn-chevron-right"></i>
-                            <p class="mb-0">Main Dahboard</p>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item nav-search d-none d-md-block mr-0">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="search">
-                                    <i class="typcn typcn-zoom"></i>
-                                </span>
-                            </div>
-                        </div>
+                        <h3 class="mb-0">Travel Trip</h3>
                     </li>
                 </ul>
             </div>
@@ -389,7 +328,7 @@
             </div>
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
-            @Html.Action("PartialSidebar", "Admin")
+            @Html.Action("PartialAdminSidebar", "Admin")
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -397,16 +336,7 @@
                 </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
-                <footer class="footer">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Free <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrap dashboard</a> templates from Bootstrapdash.com</span>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                @Html.Action("PartialAdminFooter", "Admin")
                 <!-- partial -->
             </div>
             <!-- main-panel ends -->
@@ -414,23 +344,8 @@
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    <!-- base:js -->
-    <script src="~/Content/polluxui-free-admin-template-1.0.0/template/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <script src="/Content/polluxui-free-admin-template-1.0.0/vendors/chart.js/Chart.min.js"></script>
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="~/Content/polluxui-free-admin-template-1.0.0/template/js/off-canvas.js"></script>
-    <script src="~/Content/polluxui-free-admin-template-1.0.0/template/js/hoverable-collapse.js"></script>
-    <script src="~/Content/polluxui-free-admin-template-1.0.0/template/js/template.js"></script>
-    <script src="~/Content/polluxui-free-admin-template-1.0.0/template/js/settings.js"></script>
-    <script src="~/Content/polluxui-free-admin-template-1.0.0/template/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="~/Content/polluxui-free-admin-template-1.0.0/template/js/dashboard.js"></script>
-    <!-- End custom js for this page-->
-    
+    @Html.Action("PartialAdminScripts", "Admin")
+
 </body>
 
 </html>

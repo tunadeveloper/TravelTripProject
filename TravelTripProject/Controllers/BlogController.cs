@@ -18,27 +18,24 @@ namespace TravelTripProject.Controllers
 
         public ActionResult Index(int page = 1)
         {
-            int pageSize = 4; 
+            int pageSize = 4;
 
             var blogs = context.Blogs
-                                   .OrderBy(g => g.Id) 
-                                   .Skip((page - 1) * pageSize) 
-                                   .Take(pageSize) 
-                                   .ToList();
-            int totalBlog = context.Blogs.Count();
+                               .OrderByDescending(g => g.Id)
+                               .Skip((page - 1) * pageSize)
+                               .Take(pageSize)
+                               .ToList();
 
-            ViewBag.TotalPages = (int)Math.Ceiling((double)totalBlog / pageSize);
+            int totalBlog = context.Blogs.Count();
+            int totalPages = totalBlog / pageSize + (totalBlog % pageSize > 0 ? 1 : 0);
+
+            ViewBag.TotalPages = totalPages;
             ViewBag.CurrentPage = page;
 
-            var values = context.Blogs.OrderByDescending(x => x.Id).ToList();
-
-            var commentsCount = context.Comments.Count();
-            ViewBag.commentsCount = commentsCount;
-
-            ViewBag.Galleries = blogs; 
-
-            return View(values);
+            return View(blogs);
         }
+
+
 
         [HttpPost]
         public ActionResult Index(Message message)

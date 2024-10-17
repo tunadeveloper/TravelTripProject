@@ -1,0 +1,21 @@
+﻿@model TravelTripProject.Models.Classes.Home
+@{
+    ViewBag.Title = "UpdateHome";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h4>Anasayfa Güncelle</h4>
+<form method="post">
+    @Html.HiddenFor(x => x.Id)
+    <br /><br />
+    <label>Görsel Başlığı</label>
+    @Html.TextBoxFor(x => x.HeadImageTitle, new { @class = "form-control" })
+    <br /><br />
+    <label>Görsel Açıklaması</label>
+    @Html.TextBoxFor(x => x.HeadImageDescription, new { @class = "form-control" })
+    <br /><br />
+    <label>Görsel URL</label>
+    @Html.TextBoxFor(x => x.HeadImage, new { @class = "form-control" })
+    <br /><br />
+    <button class="btn btn-success">Bilgileri Güncelle</button>
+
+</form>

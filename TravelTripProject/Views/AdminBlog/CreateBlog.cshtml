@@ -1,0 +1,25 @@
+﻿@model TravelTripProject.Models.Classes.Blog
+@{
+    ViewBag.Title = "CreateBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Blog Yaz</h4>
+
+<form method="post">
+    <br /><br />
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br /><br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Description, 20, 0, new { @class = "form-control" })
+    <br /><br />
+    <label>Konum</label>
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <br /><br />
+    <label>Görsel URL</label>
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br /><br />
+
+    <button class="btn btn-info">Blog'u Gönder</button>
+</form>

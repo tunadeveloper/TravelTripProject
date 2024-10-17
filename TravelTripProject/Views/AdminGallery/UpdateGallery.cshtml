@@ -1,0 +1,16 @@
+﻿@model TravelTripProject.Models.Classes.Gallery
+@{
+    ViewBag.Title = "UpdateGallery";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Görsel Güncelle</h4>
+
+<form method="post">
+    @Html.HiddenFor(x => x.Id)
+    <br /><br />
+    <label>Görsel URL</label>
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br /><br />
+    <button class="btn btn-success">Görseli Güncelle</button>
+</form>

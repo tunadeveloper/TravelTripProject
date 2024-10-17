@@ -134,9 +134,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AdminBlogController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminHomeController.cs" />
+    <Compile Include="Controllers\AdminMessageController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\AdminGalleryController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -215,6 +220,10 @@
     <Compile Include="Migrations\202410160835315_u6.Designer.cs">
       <DependentUpon>202410160835315_u6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410171512588_u51.cs" />
+    <Compile Include="Migrations\202410171512588_u51.Designer.cs">
+      <DependentUpon>202410171512588_u51.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\About.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
@@ -248,6 +257,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Chart.min.js" />
     <Content Include="Content\clickaholic-master\about.html" />
     <Content Include="Content\clickaholic-master\blog.html" />
     <Content Include="Content\clickaholic-master\contact.html" />
@@ -1297,14 +1307,28 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\PartialSidebar.cshtml" />
-    <Content Include="Views\Admin\PartialDasboardBlog.cshtml" />
-    <Content Include="Views\Admin\PartialDasboardComment.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Admin\PartialAdminSidebar.cshtml" />
+    <Content Include="Views\Dashboard\PartialDasboardBlog.cshtml" />
+    <Content Include="Views\Dashboard\PartialDasboardComment.cshtml" />
+    <Content Include="Views\Admin\PartialAdminHead.cshtml" />
+    <Content Include="Views\Admin\PartialAdminScripts.cshtml" />
+    <Content Include="Views\Admin\PartialAdminFooter.cshtml" />
+    <Content Include="Views\AdminHome\Index.cshtml" />
+    <Content Include="Views\AdminHome\UpdateHome.cshtml" />
+    <Content Include="Views\AdminGallery\Index.cshtml" />
+    <Content Include="Views\AdminGallery\UpdateGallery.cshtml" />
+    <Content Include="Views\AdminGallery\CreateImage.cshtml" />
+    <Content Include="Views\AdminBlog\Index.cshtml" />
+    <Content Include="Views\AdminBlog\UpdateBlog.cshtml" />
+    <Content Include="Views\AdminBlog\CreateBlog.cshtml" />
+    <Content Include="Views\AdminMessage\Index.cshtml" />
+    <Content Include="Views\AdminMessage\MessageDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Contect\" />
+    <Folder Include="Views\GalleryAdmin\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
@@ -1388,6 +1412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410160835315_u6.resx">
       <DependentUpon>202410160835315_u6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410171512588_u51.resx">
+      <DependentUpon>202410171512588_u51.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
