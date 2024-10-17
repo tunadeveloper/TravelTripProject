@@ -1,0 +1,25 @@
+﻿<!doctype html>
+<html lang="en">
+
+@Html.Action("PartialHead", "Default");
+
+<body>
+
+    <!--Navbar -->
+    @Html.Action("PartialNavbar", "Default")
+    <!--/.Navbar -->
+
+    <!--İçerik-->
+        @RenderBody()
+    <!--/.İçerik-->
+
+    <!-- Footer -->
+    @Html.Action("PartialFooter", "Default")
+    <!--/. Footer -->
+
+    <!-- Footer -->
+    @Html.Action("PartialScript", "Default")
+    <!--/. Footer -->
+</body>
+
+</html>

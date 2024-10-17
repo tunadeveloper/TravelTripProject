@@ -1,0 +1,44 @@
+﻿@model List<TravelTripProject.Models.Classes.Gallery>
+
+<footer>
+    <section class="footer-top">
+        <!--Container-->
+        <div class="container">
+            <h2>Akış</h2>
+            <div class="row text-center text-lg-left">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-2 col-md-4 col-xs-6">
+                        <a href="@item.Image" class="d-block h-100">
+                            <img class="img-fluid img-thumbnail" src="@item.Image" alt="Gallery Image">
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- /.container -->
+    </section>
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li><a href="/Home/Index/">Anasayfa</a></li>
+                        <li class="hidden">/</li>
+                        <li><a href="/About/Index/">Hakkımızda</a></li>
+                        <li class="hidden">/</li>
+                        <li><a href="/Gallery/Index/">Galeri</a></li>
+                        <li class="hidden">/</li>
+                        <li><a href="/Blog/Index/">Blog</a></li>
+                        <li class="hidden">/</li>
+                        <li><a href="/Contact/Index/">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <p>(C) Tüm Hakları Saklıdır <span>/</span> Tunahan Cengiz <a href="https://github.com/tunadeveloper" target="_blank">FULL STACK.NET CORE DEVELOPER</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </section>
+</footer>

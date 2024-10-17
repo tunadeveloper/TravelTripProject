@@ -1,0 +1,32 @@
+﻿@model List<TravelTripProject.Models.Classes.Blog>
+<div class="col-md-6">
+    <h4>Son Bloglar</h4>
+    <div class="card">
+        <div class="table-responsive pt-3">
+            <table class="table table-striped project-orders-table">
+                <thead>
+                    <tr>
+                        <th class="ml-5">#</th>
+                        <th>Başlık</th>
+                        <th>Görsel</th>
+                        <th>Yer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@(item.Title.Length > 20 ? item.Title.Substring(0, 20) + "..." : item.Title)</td>
+                            <td>
+                                <img src="@item.Image" alt="@item.Title" style="width: 47px; height:47px"/>
+                            </td>
+                            <td>@item.City</td>
+                        </tr>
+                    }
+                     
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

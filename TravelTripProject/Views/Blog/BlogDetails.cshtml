@@ -1,0 +1,77 @@
+﻿@model TravelTripProject.Models.Classes.Blog
+@{
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="blog-single">
+    <div class="container">
+        <div class="main-contant">
+            <div class="row">
+                <div class="col-sm-12">
+                    <figure class="figure">
+                        <img src="@Model.Image" class="figure-img img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-danger">@Model.City</a>
+                                <button class="btn btn-primary"><i class="fa fa-comment" aria-hidden="true"></i> @ViewBag.commentsCount</button>
+                            </div>
+                            <span>Tarih : @Model.Date.ToString("dd.MM.yyyy")</span>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-sm-12">
+                    <h3>@Model.Title</h3>
+                    <p>@Model.Description</p>
+                    <hr />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Senin de fikrin olsun :)</h2>
+                </div>
+            </div>
+
+            @*yorum gönderme yeri*@
+            <form class="form" method="post">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <input type="hidden" name="BlogId" value="@Model.Id" />
+                        <input type="text" class="form-control" name="Username" placeholder="İsim Soyisim  " required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="email" class="form-control" name="Email" placeholder=" E-Posta Adresi" required>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <textarea class="form-control" rows="5" name="UserComment" placeholder="Yorumunuz" required></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Yorumu Gönder</button>
+            </form>
+            @*yorum gönderme yeri*@
+
+            <div class="post">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>Yorumlar (@ViewBag.commentsCount)</h2>
+                    </div>
+                </div>
+                <div class="row">
+
+                    @foreach (var item in Model.Comments)
+                    {
+                        <div class="col-lg-6 col-md-12 col-12">
+                            <div class="col1">
+                                <p><strong><span>@item.Email</span>@item.Username</strong>@item.UserComment</p>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,92 @@
+﻿@model TravelTripProject.Models.Classes.HomeBlog
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
+
+    <!--Foreach-->
+    <!--Slides-->
+    <div class="carousel-inner">
+        @for (int i = 0; i < Model.Homes.Count; i++)
+        {
+            var item = Model.Homes[i];
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                <img class="d-block w-100" src="@item.HeadImage" alt="Slide @i">
+                <div class="gradient"></div>
+                <div class="carousel-caption">
+                    <h1>@item.HeadImageTitle</h1>
+                    <p class="lead">@item.HeadImageDescription</p>
+                    <a class="btn btn-primary" href="/About/Index/"><span>Hakkımda</span></a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!--/.Slides-->
+    <!--/.Controls-->
+    <!--/Küçük görsellerin geleceği yer-->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-thumb" data-slide-to="0" class="active">
+            <img class="d-block w-100" src="/Content/clickaholic-master/images/banner-image-4.jpg" class="img-fluid">
+        </li>
+
+    </ol>
+
+    <ol class="carousel-indicators">
+        @for (int i = 0; i < Model.Homes.Count; i++)
+        {
+            var item = Model.Homes[i];
+            <li data-target="#carousel-thumb" data-slide-to="@i" class="@(i == 0 ? "active" : "")">
+                <img class="d-block img-thumbnail" src="@item.HeadImage" alt="Thumbnail @i">
+            </li>
+        }
+    </ol>
+
+
+    <!--Foreach-->
+</div>
+<!--/.Carousel Wrapper-->
+<!-- Page Content -->
+
+
+                <!-- foreach -->
+               @Html.Action("PartialContent", "Home")
+                <!-- foreach -->
+
+
+
+
+<section class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 left-side">
+                <h2>Son Bloglarım</h2>
+
+
+
+                @foreach (var item in Model.Blogs)
+                {
+                    <div class="row">
+                        <div class="col-md-6">
+                            <figure class="figure">
+                                <img src="@item.Image" class="figure-img img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                            </figure>
+                        </div>
+                        <div class="col-md-6">
+                            <h4><a href="/Blog/BlogDetails/@item.Id">@item.Title</a></h4>
+                            <div class="btn-group">
+                                <a href="/Blog/BlogDetails/@item.Id" class="btn btn-danger">@item.City</a>
+                            </div>
+                            <p>Tarih : @item.Date</p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            @Html.Action("PartialWhosMe", "Home")
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,31 @@
+﻿@model List<TravelTripProject.Models.Classes.Content>
+<section id="portfolio">
+    <div class="container">
+        <h2>Doğanın Harikaları</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-12">
+                <div class="row">
+                    @for (int i = 0; i < Model.Count; i += 2)
+                    {
+                        <div class="col-xl-6 col-md-6">
+                            <a href="@Model[i].Image" data-toggle="lightbox" data-gallery="example-gallery" class="box-1">
+                                <img src="@Model[i].Image" class="img-fluid">
+                            </a>
+                        </div>
+                        if (i + 1 < Model.Count)
+                        {
+                            <div class="col-xl-6 col-md-6">
+                                <a href="@Model[i + 1].Image" data-toggle="lightbox" data-gallery="example-gallery" class="box-1">
+                                    <img src="@Model[i + 1].Image" class="img-fluid">
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+</section>

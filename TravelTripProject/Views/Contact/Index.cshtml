@@ -1,0 +1,49 @@
+﻿@model List<TravelTripProject.Models.Classes.Contact>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="support">
+    <div class="container">
+        <h3>İletişime Geç!</h3>
+        <div class="row">
+            @foreach(var item in Model) {
+            <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="rounded">
+
+                    <iframe src="@item.Map" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <p>
+                   @item.Description
+                </p>
+            </div>
+            }
+        </div>
+
+        <div class="container py-5 main">
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="post">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="NameSurname" placeholder="İsim Soyisim" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="Email" placeholder="E-Posta Adresi" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <textarea type="text" class="form-control" name="Description" placeholder="Açıklama" rows="8" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary px-4">Mesajı Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

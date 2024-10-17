@@ -1,0 +1,47 @@
+﻿@model List<TravelTripProject.Models.Classes.Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="blog-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 left-side">
+                <h2>Bloglarım</h2>
+
+                @foreach(var item in Model) {
+                <div class="row">
+                    <div class="col-md-6">
+                        <figure class="figure">
+                            <img src="@item.Image" class="figure-img img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <h4><a href="/Blog/BlogDetails/@item.Id">@item.Title</a></h4>
+                        <div class="btn-group">
+                            <a href="/Blog/BlogDetails/@item.Id" class="btn btn-danger">@item.City</a>
+                        </div>
+                        <p>Tarih : @item.Date.ToString("dd.MM.yyyy")</p>
+                    </div>
+                </div>
+                }
+
+            </div>
+            @Html.Action("PartialWhosMe", "Home")
+        </div>
+        <div class="row bt">
+            <div class="col-sm-12 text-center">
+                <ul class="pagination">
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="@(i == ViewBag.CurrentPage ? "active" : "")">
+                            <a href="@Url.Action("Index", new { page = i })">@i</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+

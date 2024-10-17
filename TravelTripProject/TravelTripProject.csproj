@@ -1,0 +1,1436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{495D9A26-DA4F-4C5E-B915-DA1D096D2F0F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TravelTripProject</RootNamespace>
+    <AssemblyName>TravelTripProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44399</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410131430083_addCityField.cs" />
+    <Compile Include="Migrations\202410131430083_addCityField.Designer.cs">
+      <DependentUpon>202410131430083_addCityField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410131525187_MigrationName.cs" />
+    <Compile Include="Migrations\202410131525187_MigrationName.Designer.cs">
+      <DependentUpon>202410131525187_MigrationName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410131653462_MigrationUpdate.cs" />
+    <Compile Include="Migrations\202410131653462_MigrationUpdate.Designer.cs">
+      <DependentUpon>202410131653462_MigrationUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410131708266_MigrationUpdate1.cs" />
+    <Compile Include="Migrations\202410131708266_MigrationUpdate1.Designer.cs">
+      <DependentUpon>202410131708266_MigrationUpdate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410131719093_MigrationUpdate2.cs" />
+    <Compile Include="Migrations\202410131719093_MigrationUpdate2.Designer.cs">
+      <DependentUpon>202410131719093_MigrationUpdate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410140947557_AddBlogHomes.cs" />
+    <Compile Include="Migrations\202410140947557_AddBlogHomes.Designer.cs">
+      <DependentUpon>202410140947557_AddBlogHomes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410141209366_AddBlogHomes1.cs" />
+    <Compile Include="Migrations\202410141209366_AddBlogHomes1.Designer.cs">
+      <DependentUpon>202410141209366_AddBlogHomes1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410141217163_update.cs" />
+    <Compile Include="Migrations\202410141217163_update.Designer.cs">
+      <DependentUpon>202410141217163_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410141222581_update1.cs" />
+    <Compile Include="Migrations\202410141222581_update1.Designer.cs">
+      <DependentUpon>202410141222581_update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410141224510_UpdateClass.cs" />
+    <Compile Include="Migrations\202410141224510_UpdateClass.Designer.cs">
+      <DependentUpon>202410141224510_UpdateClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410141226013_UpdateClass2.cs" />
+    <Compile Include="Migrations\202410141226013_UpdateClass2.Designer.cs">
+      <DependentUpon>202410141226013_UpdateClass2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410150809401_u1.cs" />
+    <Compile Include="Migrations\202410150809401_u1.Designer.cs">
+      <DependentUpon>202410150809401_u1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410150814326_u11.cs" />
+    <Compile Include="Migrations\202410150814326_u11.Designer.cs">
+      <DependentUpon>202410150814326_u11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410151027513_u12.cs" />
+    <Compile Include="Migrations\202410151027513_u12.Designer.cs">
+      <DependentUpon>202410151027513_u12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410151035367_u13.cs" />
+    <Compile Include="Migrations\202410151035367_u13.Designer.cs">
+      <DependentUpon>202410151035367_u13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410160816261_u4.cs" />
+    <Compile Include="Migrations\202410160816261_u4.Designer.cs">
+      <DependentUpon>202410160816261_u4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410160825317_u5.cs" />
+    <Compile Include="Migrations\202410160825317_u5.Designer.cs">
+      <DependentUpon>202410160825317_u5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410160835315_u6.cs" />
+    <Compile Include="Migrations\202410160835315_u6.Designer.cs">
+      <DependentUpon>202410160835315_u6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Classes\About.cs" />
+    <Compile Include="Models\Classes\Admin.cs" />
+    <Compile Include="Models\Classes\Blog.cs" />
+    <Compile Include="Models\Classes\Comment.cs" />
+    <Compile Include="Models\Classes\Contact.cs" />
+    <Compile Include="Models\Classes\Content.cs" />
+    <Compile Include="Models\Classes\Context.cs" />
+    <Compile Include="Models\Classes\Gallery.cs" />
+    <Compile Include="Models\Classes\Home.cs" />
+    <Compile Include="Models\Classes\HomeBlog.cs" />
+    <Compile Include="Models\Classes\Message.cs" />
+    <Compile Include="Models\Classes\SocialMedia.cs" />
+    <Compile Include="Models\Classes\WhosMe.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\clickaholic-master\about.html" />
+    <Content Include="Content\clickaholic-master\blog.html" />
+    <Content Include="Content\clickaholic-master\contact.html" />
+    <Content Include="Content\clickaholic-master\css\animate.css" />
+    <Content Include="Content\clickaholic-master\css\main.css" />
+    <Content Include="Content\clickaholic-master\css\owl.carousel.min.css" />
+    <Content Include="Content\clickaholic-master\css\owl.theme.default.min.css" />
+    <Content Include="Content\clickaholic-master\destinations.html" />
+    <Content Include="Content\clickaholic-master\gallery.html" />
+    <Content Include="Content\clickaholic-master\images\banner-image-1.jpg" />
+    <Content Include="Content\clickaholic-master\images\banner-image-2.jpg" />
+    <Content Include="Content\clickaholic-master\images\banner-image-3.jpg" />
+    <Content Include="Content\clickaholic-master\images\banner-image-4.jpg" />
+    <Content Include="Content\clickaholic-master\images\blog-single-page-bg.jpg" />
+    <Content Include="Content\clickaholic-master\images\comment.png" />
+    <Content Include="Content\clickaholic-master\images\footer-bg-image.jpg" />
+    <Content Include="Content\clickaholic-master\images\nav-logo.png" />
+    <Content Include="Content\clickaholic-master\images\support-bg.jpg" />
+    <Content Include="Content\clickaholic-master\index.html" />
+    <Content Include="Content\clickaholic-master\js\animate.js" />
+    <Content Include="Content\clickaholic-master\js\custom.js" />
+    <Content Include="Content\clickaholic-master\js\owl.carousel.min.js" />
+    <Content Include="Content\clickaholic-master\mystories.html" />
+    <Content Include="Content\clickaholic-master\single.html" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\.gitignore" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\docs\documentation.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\docs\documentation.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\preview.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\css\vertical-layout-light\style.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\gulpfile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\auth\lockscreen-bg.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\auth\login-bg.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\auth\register-bg.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_1.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_10.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_11.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_12.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_2.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_3.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_4.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_5.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_6.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_7.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_8.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\carousel\banner_9.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\boxed-layout.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\calendar.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\compact-menu.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\dark-sidebar.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\email.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\fixed-menu.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\horizontal-menu-dark.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\horizontal-menu-light.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\icon-menu.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\login.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\portfolio.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\pricing.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\toggle-menu.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\toggle-overlay-menu.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\vertical-dark.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\demo\vertical-default.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face1.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face10.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face11.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face12.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face13.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face14.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face15.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face16.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face17.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face18.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face19.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face2.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face20.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face21.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face22.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face23.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face24.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face25.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face26.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face27.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face3.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face4.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face5.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face6.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face7.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face8.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\faces\face9.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\favicon.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\128\001-interface-1.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\128\002-tool.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\128\003-interface.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\128\004-folder-1.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\128\005-database.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\128\006-record.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\128\007-folder.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\128\008-archive.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\256\001-interface-1.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\256\002-tool.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\256\003-interface.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\256\004-folder-1.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\256\005-database.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\256\006-record.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\256\007-folder.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\256\008-archive.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\512\001-interface-1.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\512\002-tool.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\512\003-interface.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\512\004-folder-1.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\512\005-database.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\512\006-record.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\512\007-folder.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\512\008-archive.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\64\001-interface-1.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\64\002-tool.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\64\003-interface.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\64\004-folder-1.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\64\005-database.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\64\006-record.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\64\007-folder.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\64\008-archive.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\file-icons\flag\flag.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\lightbox\play-button.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\lightbox\thumb-v-v-1.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\lightbox\thumb-v-v-2.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\lightbox\thumb-v-y-1.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\lightbox\thumb-v-y-2.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\logo-dark.svg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\logo-mini.svg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\logo.svg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\1.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\10.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\11.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\12.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\13.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\14.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\15.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\2.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\3.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\4.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\5.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\6.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\7.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\8.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\1280x768\9.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\1.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\10.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\11.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\12.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\13.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\14.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\15.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\2.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\3.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\4.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\5.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\6.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\7.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\8.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\samples\300x300\9.jpg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\sprites\blue.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\sprites\dark.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\sprites\flag.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\sprites\green.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\sprites\jsgrid-icons.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\sprites\red.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\images\sprites\yellow.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\index.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\ace.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\alerts.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\avgrund.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\bootstrap-table.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\bt-maxLength.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\c3.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\calendar.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\chart.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\chartist.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\circle-progress.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\clipboard.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\codeEditor.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\codemirror.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\context-menu.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\dashboard.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\data-table.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\db.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\demo.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\desktop-notification.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\dragula.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\dropify.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\dropzone.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\editorDemo.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\file-upload.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\flot-chart.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\form-addons.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\form-repeater.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\form-validation.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\formpickers.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\google-charts.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\google-maps.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\hoverable-collapse.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\ion-range-slider.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\jq.tablesort.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\jquery-file-upload.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\js-grid.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\just-gage.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\light-gallery.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\listify.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\mapael.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\mapael_example_1.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\mapael_example_2.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\maps.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\modal-demo.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\morris.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\no-ui-slider.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\off-canvas.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\owl-carousel.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\paginate.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\popover.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\profile-demo.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\progress-bar.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\rickshaw.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\select2.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\settings.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\sparkline.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\tablesorter.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\tabs.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\template.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\tight-grid.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\toastDemo.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\todolist.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\tooltips.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\typeahead.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\wizard.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\js\x-editable.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\charts\chartjs.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\documentation\documentation.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\forms\basic_elements.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\icons\mdi.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\samples\error-404.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\samples\error-500.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\samples\login.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\samples\register.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\tables\basic-table.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\ui-features\buttons.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\ui-features\dropdowns.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\pages\ui-features\typography.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\partials\_footer.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\partials\_navbar.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\partials\_settings-panel.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\partials\_sidebar.html" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ace.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-beautify.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-code_lens.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-elastic_tabstops_lite.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-emmet.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-error_marker.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-keybinding_menu.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-language_tools.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-linking.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-modelist.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-options.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-prompt.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-rtl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-searchbox.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-settings_menu.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-spellcheck.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-split.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-static_highlight.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-statusbar.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-textarea.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-themelist.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\ext-whitespace.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\keybinding-emacs.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\keybinding-sublime.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\keybinding-vim.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\keybinding-vscode.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-abap.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-abc.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-actionscript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-ada.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-alda.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-apache_conf.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-apex.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-applescript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-aql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-asciidoc.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-asl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-assembly_x86.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-autohotkey.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-batchfile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-c9search.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-cirru.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-clojure.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-cobol.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-coffee.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-coldfusion.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-crystal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-csharp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-csound_document.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-csound_orchestra.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-csound_score.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-csp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-css.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-curly.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-c_cpp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-d.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-dart.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-diff.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-django.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-dockerfile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-dot.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-drools.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-edifact.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-eiffel.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-ejs.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-elixir.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-elm.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-erlang.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-forth.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-fortran.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-fsharp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-fsl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-ftl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-gcode.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-gherkin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-gitignore.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-glsl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-gobstones.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-golang.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-graphqlschema.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-groovy.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-haml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-handlebars.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-haskell.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-haskell_cabal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-haxe.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-hjson.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-html.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-html_elixir.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-html_ruby.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-ini.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-io.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-jack.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-jade.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-java.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-javascript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-json.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-json5.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-jsoniq.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-jsp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-jssm.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-jsx.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-julia.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-kotlin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-latex.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-less.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-liquid.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-lisp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-livescript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-logiql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-logtalk.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-lsl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-lua.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-luapage.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-lucene.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-makefile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-markdown.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-mask.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-matlab.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-maze.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-mediawiki.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-mel.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-mixal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-mushcode.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-mysql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-nginx.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-nim.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-nix.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-nsis.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-nunjucks.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-objectivec.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-ocaml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-pascal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-perl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-perl6.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-pgsql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-php.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-php_laravel_blade.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-pig.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-plain_text.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-powershell.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-praat.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-prisma.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-prolog.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-properties.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-protobuf.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-puppet.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-python.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-qml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-r.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-razor.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-rdoc.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-red.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-redshift.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-rhtml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-rst.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-ruby.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-rust.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-sass.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-scad.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-scala.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-scheme.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-scss.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-sh.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-sjs.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-slim.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-smarty.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-snippets.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-soy_template.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-space.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-sparql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-sql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-sqlserver.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-stylus.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-svg.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-swift.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-tcl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-terraform.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-tex.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-text.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-textile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-toml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-tsx.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-turtle.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-twig.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-typescript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-vala.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-vbscript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-velocity.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-verilog.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-vhdl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-visualforce.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-wollok.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-xml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-xquery.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-yaml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\mode-zeek.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\abap.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\abc.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\actionscript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\ada.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\alda.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\apache_conf.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\apex.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\applescript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\aql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\asciidoc.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\asl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\assembly_x86.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\autohotkey.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\batchfile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\c9search.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\cirru.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\clojure.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\cobol.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\coffee.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\coldfusion.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\crystal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\csharp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\csound_document.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\csound_orchestra.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\csound_score.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\csp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\css.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\curly.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\c_cpp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\d.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\dart.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\diff.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\django.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\dockerfile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\dot.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\drools.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\edifact.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\eiffel.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\ejs.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\elixir.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\elm.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\erlang.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\forth.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\fortran.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\fsharp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\fsl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\ftl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\gcode.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\gherkin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\gitignore.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\glsl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\gobstones.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\golang.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\graphqlschema.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\groovy.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\haml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\handlebars.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\haskell.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\haskell_cabal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\haxe.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\hjson.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\html.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\html_elixir.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\html_ruby.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\ini.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\io.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\jack.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\jade.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\java.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\javascript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\json.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\json5.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\jsoniq.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\jsp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\jssm.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\jsx.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\julia.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\kotlin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\latex.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\less.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\liquid.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\lisp.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\livescript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\logiql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\logtalk.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\lsl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\lua.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\luapage.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\lucene.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\makefile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\markdown.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\mask.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\matlab.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\maze.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\mediawiki.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\mel.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\mixal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\mushcode.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\mysql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\nginx.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\nim.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\nix.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\nsis.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\nunjucks.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\objectivec.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\ocaml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\pascal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\perl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\perl6.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\pgsql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\php.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\php_laravel_blade.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\pig.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\plain_text.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\powershell.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\praat.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\prisma.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\prolog.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\properties.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\protobuf.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\puppet.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\python.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\qml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\r.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\razor.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\rdoc.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\red.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\redshift.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\rhtml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\rst.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\ruby.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\rust.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\sass.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\scad.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\scala.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\scheme.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\scss.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\sh.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\sjs.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\slim.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\smarty.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\snippets.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\soy_template.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\space.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\sparql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\sql.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\sqlserver.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\stylus.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\svg.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\swift.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\tcl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\terraform.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\tex.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\text.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\textile.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\toml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\tsx.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\turtle.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\twig.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\typescript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\vala.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\vbscript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\velocity.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\verilog.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\vhdl.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\visualforce.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\wollok.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\xml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\xquery.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\yaml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\snippets\zeek.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-ambiance.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-chaos.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-chrome.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-clouds.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-clouds_midnight.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-cobalt.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-crimson_editor.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-dawn.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-dracula.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-dreamweaver.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-eclipse.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-github.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-gob.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-gruvbox.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-idle_fingers.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-iplastic.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-katzenmilch.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-kr_theme.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-kuroir.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-merbivore.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-merbivore_soft.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-monokai.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-mono_industrial.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-nord_dark.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-pastel_on_dark.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-solarized_dark.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-solarized_light.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-sqlserver.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-terminal.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-textmate.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-tomorrow.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-tomorrow_night.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-tomorrow_night_blue.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-tomorrow_night_bright.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-tomorrow_night_eighties.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-twilight.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-vibrant_ink.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\theme-xcode.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-base.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-coffee.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-css.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-html.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-javascript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-json.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-lua.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-php.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-xml.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\ace-builds\src-min\worker-xquery.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\chart.js\Chart.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\codemirror\ambiance.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\codemirror\codemirror.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\codemirror\codemirror.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\codemirror\javascript.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\codemirror\shell.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\css\vendor.bundle.base.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\jquery-file-upload\jquery.uploadfile.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\jquery-file-upload\uploadfile.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\jquery.avgrund\jquery.avgrund.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\jsgrid\jsgrid-theme.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\js\vendor.bundle.base.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\mdi\css\materialdesignicons.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\mdi\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\moment\moment.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\moment\moment.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\pwstabs\jquery.pwstabs.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\pwstabs\jquery.pwstabs.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\quill\quill.snow.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\select2\select2.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\select2\select2.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\simplemde\simplemde.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\changelog.txt" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\jquery.tinymce.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\license.txt" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\advlist\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\anchor\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autolink\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autoresize\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autosave\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\bbcode\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\charmap\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\codesample\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\codesample\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\code\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\code\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\colorpicker\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\contextmenu\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\directionality\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\fullpage\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\fullscreen\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\help\img\logo.png" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\help\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\help\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\hr\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\hr\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\imagetools\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\imagetools\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\image\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\image\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\importcss\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\insertdatetime\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\legacyoutput\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\link\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\link\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\lists\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\lists\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\media\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\media\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\nonbreaking\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\noneditable\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\pagebreak\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\paste\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\paste\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\preview\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\preview\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\print\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\print\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\save\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\save\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\searchreplace\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\spellchecker\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\tabfocus\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\table\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\table\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\template\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\template\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\textcolor\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\textpattern\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\toc\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\toc\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\visualblocks\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\visualchars\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\wordcount\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\themes\inlite\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\themes\inlite\theme.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\themes\modern\index.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\themes\modern\theme.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\tinymce.jquery.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\tinymce.jquery.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\tinymce.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\tinymce.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\twbs-pagination\jquery.twbsPagination.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\typeahead.js\typeahead.bundle.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\typicons\typicons.css" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\typicons\typicons.svg" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\CHANGELOG.md" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\LICENSE" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\README.md" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\css\maps\horizontal-layout-dark\style.css.map" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\css\maps\horizontal-layout-light\style.css.map" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\css\maps\horizontal-layout\style.css.map" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\css\maps\vertical-layout-dark\style.css.map" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\css\maps\vertical-layout-light\style.css.map" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Black.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Black.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Black.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Black.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Bold.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Bold.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Bold.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-ExtraBold.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-ExtraBold.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-ExtraBold.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Light.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Light.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Light.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Light.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Medium.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Medium.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Medium.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Regular.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Regular.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-Regular.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-SemiBold.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-SemiBold.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\fonts\Poppins\Poppins-SemiBold.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\package-lock.json" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\package.json" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\common.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_bar-loader.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_circle-loader.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_colored-balls.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_dot-opacity-loader.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_flip-square-loader.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_glowing-ball.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_jumping-dots-loader.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_loaders.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_moving-square-loader.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_pixel-loader.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_square-box.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_square-path-loader.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\loaders\_variables.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_ace.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_avgrund.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_codemirror.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_icheck.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_jquery-file-upload.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_progressbar-js.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_pws-tabs.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_quill.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_select2.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_summernote.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_tags.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_tinymce.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_toast.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_typeahead.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_wysieditor.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\plugin-overrides\_x-editable.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_accordions.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_badges.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_breadcrumbs.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_buttons.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_cards.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_checkbox-radio.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_dropdown.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_forms.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_icons.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_lists.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_pagination.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_popover.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_portfolio.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_preview.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_tables.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_todo-list.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_toggle-switch.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\components\_tooltips.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\landing-screens\_auth.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_animation.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_badges.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_blockqoute.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_breadcrumbs.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_buttons.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_cards.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_misc.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_no-ui-slider.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_pagination.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_popovers.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\mixins\_tooltips.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_background.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_demo.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_fonts.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_footer.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_functions.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_misc.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_reset.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_typography.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_utilities.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\common\light\_variables.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\vertical-layout-light\style.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\vertical-layout-light\_layouts.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\vertical-layout-light\_navbar.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\vertical-layout-light\_settings-panel.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\vertical-layout-light\_sidebar.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\vertical-layout-light\_variables.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\scss\vertical-layout-light\_vertical-wrapper.scss" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\mdi\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\mdi\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\mdi\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\mdi\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\bower.json" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\composer.json" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\package.json" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\readme.md" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\typicons\LICENCE.md" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\typicons\typicons.eot" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\typicons\typicons.ttf" />
+    <Content Include="Content\polluxui-free-admin-template-1.0.0\template\vendors\typicons\typicons.woff" />
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Default\PartialNavbar.cshtml" />
+    <Content Include="Views\Default\PartialHead.cshtml" />
+    <Content Include="Views\Default\PartialFooter.cshtml" />
+    <Content Include="Views\Default\PartialScript.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\BlogDetails.cshtml" />
+    <Content Include="Views\Home\PartialWhosMe.cshtml" />
+    <Content Include="Views\Home\PartialContent.cshtml" />
+    <Content Include="Views\Home\PartialSocialMedia.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\PartialSidebar.cshtml" />
+    <Content Include="Views\Admin\PartialDasboardBlog.cshtml" />
+    <Content Include="Views\Admin\PartialDasboardComment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Contect\" />
+    <Folder Include="Views\Message\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202410131430083_addCityField.resx">
+      <DependentUpon>202410131430083_addCityField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410131525187_MigrationName.resx">
+      <DependentUpon>202410131525187_MigrationName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410131653462_MigrationUpdate.resx">
+      <DependentUpon>202410131653462_MigrationUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410131708266_MigrationUpdate1.resx">
+      <DependentUpon>202410131708266_MigrationUpdate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410131719093_MigrationUpdate2.resx">
+      <DependentUpon>202410131719093_MigrationUpdate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410140947557_AddBlogHomes.resx">
+      <DependentUpon>202410140947557_AddBlogHomes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410141209366_AddBlogHomes1.resx">
+      <DependentUpon>202410141209366_AddBlogHomes1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410141217163_update.resx">
+      <DependentUpon>202410141217163_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410141222581_update1.resx">
+      <DependentUpon>202410141222581_update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410141224510_UpdateClass.resx">
+      <DependentUpon>202410141224510_UpdateClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410141226013_UpdateClass2.resx">
+      <DependentUpon>202410141226013_UpdateClass2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410150809401_u1.resx">
+      <DependentUpon>202410150809401_u1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410150814326_u11.resx">
+      <DependentUpon>202410150814326_u11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410151027513_u12.resx">
+      <DependentUpon>202410151027513_u12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410151035367_u13.resx">
+      <DependentUpon>202410151035367_u13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410160816261_u4.resx">
+      <DependentUpon>202410160816261_u4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410160825317_u5.resx">
+      <DependentUpon>202410160825317_u5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410160835315_u6.resx">
+      <DependentUpon>202410160835315_u6.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54185</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44399/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

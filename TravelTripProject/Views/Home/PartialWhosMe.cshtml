@@ -1,0 +1,43 @@
+﻿@model List<TravelTripProject.Models.Classes.WhosMe>
+
+<div class="col-lg-6 col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="right-side">
+                @foreach (var item in Model)
+                {
+                    <h3>Ben Kimim ?</h3>
+                    <figure>
+                        <img src="@item.ProfileImage" alt="" style="max-height: 1920px; max-height: 1080px">
+                    </figure>
+                    <h5>@item.Description</h5>}
+                @Html.Action("PartialSocialMedia", "Home")
+                @foreach (var item in Model)
+                {
+                    <address>
+                        <span>Telefon Numarası: @item.PhoneNumber</span>
+                        <span>E-Posta Adresi : @item.EmailAdress</span>
+                    </address>
+                }
+                    <h2>Hızlı İletişim</h2>
+                    <form id="contact" method="post" class="form" role="form">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6 form-group">
+                                <input class="form-control" id="name" name="NameSurname" placeholder="İsim Soyisim" type="text" required />
+                            </div>
+                            <div class="col-xs-6 col-md-6 form-group">
+                                <input class="form-control" id="email" name="Email" placeholder="E-Posta Adresi" type="email" required />
+                            </div>
+                        </div>
+                        <textarea class="form-control" id="message" name="Description" placeholder="Açıklama" rows="5" required></textarea>
+                        <br />
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 form-group">
+                                <button class="btn btn-primary" type="submit">Mesajı Gönder</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>

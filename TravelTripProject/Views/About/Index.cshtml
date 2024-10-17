@@ -1,0 +1,33 @@
+﻿@model List<TravelTripProject.Models.Classes.About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="about-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h3>Hakkımızda</h3>
+                <figure class="figure">
+                    @foreach (var item in Model)
+                    {
+                        if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            <img src="@item.Image" alt="about" class="figure-img img-fluid mx-auto d-block">
+                        }
+
+                    }
+                </figure>
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <p class="text-center" style="max-width: 950px;">@item.Description</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
