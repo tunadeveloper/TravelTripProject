@@ -18,7 +18,7 @@
                 <div class="carousel-caption">
                     <h1>@item.HeadImageTitle</h1>
                     <p class="lead">@item.HeadImageDescription</p>
-                    <a class="btn btn-primary" href="/About/Index/"><span>Hakkımda</span></a>
+                    <a class="btn btn-primary" href="/About/Index/"><span>Hakkımızda</span></a>
                 </div>
             </div>
         }
@@ -79,7 +79,7 @@
                             <div class="btn-group">
                                 <a href="/Blog/BlogDetails/@item.Id" class="btn btn-danger">@item.City</a>
                             </div>
-                            <p>Tarih : @item.Date</p>
+                            <p>Tarih : @item.Date.ToString("dd.MM.yyyy")</p>
                         </div>
                     </div>
                 }

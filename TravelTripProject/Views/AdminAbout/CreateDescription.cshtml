@@ -1,0 +1,16 @@
+﻿@model TravelTripProject.Models.Classes.About
+@{
+    ViewBag.Title = "CreateDescription";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Açıklama Ekle</h4>
+
+<form method="post">
+    <br /><br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Description, 20, 0, new { @class = "form-control" })
+    <br /><br />
+    <button class="btn btn-info">Açıklamayı Ekle</button>
+</form>
+

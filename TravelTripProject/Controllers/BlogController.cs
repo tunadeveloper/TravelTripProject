@@ -11,6 +11,7 @@ using System.Drawing.Printing;
 namespace TravelTripProject.Controllers
 
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         // GET: Blog

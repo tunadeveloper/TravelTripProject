@@ -7,9 +7,10 @@
                 @foreach (var item in Model)
                 {
                     <h3>Ben Kimim ?</h3>
-                    <figure>
-                        <img src="@item.ProfileImage" alt="" style="max-height: 1920px; max-height: 1080px">
-                    </figure>
+                        <figure style="width:370px;">
+                            <img src="@item.ProfileImage">
+                        </figure>
+                    
                     <h5>@item.Description</h5>}
                 @Html.Action("PartialSocialMedia", "Home")
                 @foreach (var item in Model)

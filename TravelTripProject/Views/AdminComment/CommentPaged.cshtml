@@ -1,0 +1,6 @@
+﻿@model PagedList.IPagedList<TravelTripProject.Models.Classes.Comment>
+@using PagedList.Mvc;
+
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

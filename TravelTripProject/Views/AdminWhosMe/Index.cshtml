@@ -1,0 +1,57 @@
+﻿@model List<TravelTripProject.Models.Classes.WhosMe>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@foreach (var item in Model)
+{
+    if (item.ProfileImage != null)
+    {
+        <div style="text-align: center;">
+            <img src="@item.ProfileImage" style="height:200px; width:200px; border-radius:50%;" />
+            <br />
+            <br />
+        </div>
+
+    }
+}
+<h4>Ben Kimim?</h4>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="table-responsive pt-3">
+                <table class="table table-striped project-orders-table">
+                    <thead>
+                        <tr>
+                            <th class="ml-5">#</th>
+                            <th>Açıklama</th>
+                            <th>Telefon Numarası</th>
+                            <th>E-Posta Adresi</th>
+                            <th>Güncelle</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@(item.Description.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)</td>
+                                <td>@item.PhoneNumber</td>
+                                <td>@item.EmailAdress</td>
+                                <th><a href="/AdminWhosMe/UpdateWhosMe/@item.Id" class="btn btn-success">Güncelle</a></th>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+@Html.Action("PartialSocialMedia", "AdminWhosMe")

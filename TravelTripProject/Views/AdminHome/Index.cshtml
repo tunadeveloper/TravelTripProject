@@ -26,9 +26,9 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.HeadImageTitle</td>
-                                <td>@item.HeadImageDescription</td>
-                                <td><img src="@item.HeadImage" alt="@item.HeadImageTitle" /></td>
+                                <td>@(item.HeadImageTitle.Length > 30 ? item.HeadImageTitle.Substring(0, 30) + "..." : item.HeadImageTitle)</td>
+                                <td>@(item.HeadImageDescription.Length > 30 ? item.HeadImageDescription.Substring(0, 30) + "..." : item.HeadImageDescription)</td>
+                                <td><img src="@item.HeadImage" alt="@item.HeadImageTitle" style="width:60px; height:60px;"/></td>
                                 <th><a href="/AdminHome/UpdateHome/@item.Id" class="btn btn-success">Güncelle</a></th>
                             </tr>
                         }
@@ -38,5 +38,7 @@
         </div>
     </div>
 </div>
+
 <br />
 <br />
+@Html.Action("PartialContentImage", "AdminHome")

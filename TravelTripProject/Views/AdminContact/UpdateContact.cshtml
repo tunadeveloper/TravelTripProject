@@ -1,0 +1,19 @@
+﻿@model TravelTripProject.Models.Classes.Contact
+@{
+    ViewBag.Title = "UpdateContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>İletişim Bilgilerini Güncelle</h4>
+
+<form method="post">
+    @Html.HiddenFor(x => x.Id)
+    <br /><br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Description,5,0, new { @class = "form-control" })
+    <br /><br />
+    <label>Konum</label>
+    @Html.TextBoxFor(x => x.Map, new { @class = "form-control" })
+<br /><br />
+    <button class="btn btn-success">Bilgileri Güncelle</button>
+</form>

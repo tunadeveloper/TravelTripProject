@@ -1,0 +1,22 @@
+﻿@model TravelTripProject.Models.Classes.SocialMedia
+@{
+    ViewBag.Title = "UpdateSocialMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Hesabı Güncelle</h4>
+
+<form method="post">
+    @Html.HiddenFor(x=>x.Id)
+    <br /><br />
+    <label>Uygulama Adı</label>
+    @Html.TextBoxFor(x => x.SocialMediaName, new { @class = "form-control" })
+    <br /><br />
+    <label>Icon</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br /><br />
+    <label>Hesap URL</label>
+    @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+    <br /><br />
+    <button class="btn btn-info">Hesabı Güncelle</button>
+</form>

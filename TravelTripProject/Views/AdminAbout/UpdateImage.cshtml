@@ -1,0 +1,16 @@
+﻿@model TravelTripProject.Models.Classes.About
+@{
+    ViewBag.Title = "UpdateImage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Görseli Güncelle</h4>
+
+<form method="post">
+    <br /><br />
+    <label>Açıklama</label>
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br /><br />
+    <button class="btn btn-success">Görseli Güncelle</button>
+</form>
+

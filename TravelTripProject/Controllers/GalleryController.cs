@@ -7,6 +7,7 @@ using TravelTripProject.Models.Classes;
 
 namespace TravelTripProject.Controllers
 {
+    [AllowAnonymous]
     public class GalleryController : Controller
     {
         // GET: Gallery
@@ -15,7 +16,7 @@ namespace TravelTripProject.Controllers
         {
             int pageSize = 6;
             var galleries = context.Galleries
-                                   .OrderBy(g => g.Id)
+                                   .OrderByDescending(g => g.Id)
                                    .Skip((page - 1) * pageSize)
                                    .Take(pageSize)
                                    .ToList();

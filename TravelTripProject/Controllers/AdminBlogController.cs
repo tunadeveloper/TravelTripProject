@@ -4,16 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TravelTripProject.Models.Classes;
-
+using PagedList;
+using PagedList.Mvc;
+using System.Xml.Linq;
 namespace TravelTripProject.Controllers
 {
     public class AdminBlogController : Controller
     {
         // GET: AdminBlog
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int page =1)
         {
-            var values =context.Blogs.OrderByDescending(x=>x.Id).ToList();
+            int pageSize = 7;
+            var values = context.Blogs
+                .OrderByDescending(x => x.Id)
+                .ToPagedList(page, pageSize);
+
+            ViewBag.TotalPages = values.PageCount;
+            ViewBag.CurrentPage = page;
             return View(values);
         }
 

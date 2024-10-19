@@ -18,7 +18,7 @@
                         <tr>
                             <td>@item.Id</td>
                             <td>@item.Username</td>
-                            <td>@item.BlogId</td>
+                            <td><img src="@item.Blog.Image" style="width: 47px; height:47px"/></td>
                             <td>@(item.UserComment.Length > 30 ? item.UserComment.Substring(0, 30) + "..." : item.UserComment)</td>
                         </tr>
                     }

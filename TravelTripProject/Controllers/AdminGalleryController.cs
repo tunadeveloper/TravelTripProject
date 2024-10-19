@@ -1,20 +1,28 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TravelTripProject.Models.Classes;
-
+using PagedList.Mvc;
 namespace TravelTripProject.Controllers
 {
     public class AdminGalleryController : Controller
     {
         // GET: GalleryAdmin
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var value = context.Galleries.ToList();
-            return View(value);
+            int pageSize = 7;
+            var galleries = context.Galleries
+                                  .OrderBy(x => x.Id)
+                                  .ToPagedList(page, pageSize);
+
+            ViewBag.TotalPages = galleries.PageCount;
+            ViewBag.CurrentPage = page;
+
+            return View(galleries);
         }
 
         public ActionResult UpdateGallery(int id)

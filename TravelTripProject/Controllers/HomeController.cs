@@ -7,6 +7,7 @@ using TravelTripProject.Models.Classes;
 
 namespace TravelTripProject.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         // GET: Default

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,15 @@ namespace TravelTripProject.Controllers
     {
         // GET: AdminMessage
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var values = context.messages.OrderByDescending(x=>x.Id).ToList();
+            int pageSize = 10;
+            var values = context.messages
+                .OrderByDescending(x=>x.Id)
+                .ToPagedList(page, pageSize);
+
+            ViewBag.TotalPages = values.PageCount;
+            ViewBag.CurrentPage = page;
             return View(values);
         }
 

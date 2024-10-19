@@ -1,0 +1,25 @@
+﻿@model TravelTripProject.Models.Classes.WhosMe
+@{
+    ViewBag.Title = "UpdateWhosMe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Detay Güncelle</h4>
+
+<form method="post">
+    @Html.HiddenFor(x => x.Id)
+    <br /><br />
+    <label>Profil Fotoğrafı (URL)</label>
+    @Html.TextBoxFor(x => x.ProfileImage, new { @class = "form-control" })
+    <br /><br />
+    <label>Konum</label>
+    @Html.TextAreaFor(x => x.Description, 3, 0, new { @class = "form-control" })
+    <br /><br />
+    <label>Telefon Numarası</label>
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <br /><br />
+    <label>E-Posta Adresi</label>
+    @Html.TextBoxFor(x => x.EmailAdress, new { @class = "form-control" })
+    <br /><br />
+    <button class="btn btn-success">Bilgileri Güncelle</button>
+</form>

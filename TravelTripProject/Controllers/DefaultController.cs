@@ -7,7 +7,7 @@ using TravelTripProject.Models.Classes;
 
 namespace TravelTripProject.Controllers
 {
-
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         Context context = new Context();

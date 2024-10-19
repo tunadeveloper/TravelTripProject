@@ -25,7 +25,7 @@ namespace TravelTripProject.Controllers
 
         public PartialViewResult PartialDasboardComment()
         {
-            var values = context.Comments.OrderByDescending(x => x.Id).Take(8).ToList();
+            var values = context.Comments.OrderByDescending(x => x.Id).Take(5).ToList();
             return PartialView(values);
         }
 
