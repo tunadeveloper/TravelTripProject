@@ -90,7 +90,7 @@ Update-Database
 ![404](https://github.com/user-attachments/assets/6160f929-4d59-4cfb-8c0b-d94362b2bf0e)
 
 ---
-# 👤 **Kullanıcı Paneli**
+# 👤 **User Paneli**
 ---
 ## 🏠 **Anasayfa**
 ![1](https://github.com/user-attachments/assets/e74125d3-fc12-414e-9dd6-31a32e21943d)
