@@ -119,7 +119,7 @@ Update-Database
 ![16](https://github.com/user-attachments/assets/fb4e8b10-f71f-4801-8de8-c2fbb4d3b411)
 ![17](https://github.com/user-attachments/assets/324c668d-ce98-498a-a833-807e0a304c09)
 
-## 🔑 *Admin Paneli**
+## 🔑 **Admin Paneli**
 ![18](https://github.com/user-attachments/assets/d07f1abc-fa0e-4044-ac18-2ea453e8d225)
 ![19](https://github.com/user-attachments/assets/503093b9-7f4f-47ef-8e33-74da390f617d)
 ![20](https://github.com/user-attachments/assets/13b6b657-b0d3-4468-aebe-ea245f9c0a65)
